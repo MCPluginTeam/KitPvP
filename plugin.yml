@@ -1,0 +1,8 @@
+name: KitPvP-MCPluginTeam
+api: 4.0.0
+version: 1.0.0
+main: MCPluginTeam\KitPVP
+commands:
+  kitpvp:
+    description: KitPVP Minigame Managment
+    usage: /kitpvp
