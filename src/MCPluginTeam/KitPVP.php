@@ -227,7 +227,7 @@ class KitPVP extends PluginBase implements Listener {
            
            if($args[0] === "help") {
            	
-              $sender->sendMessage("§c===================\n§a/kitpvp map §7| §6Join a map\n§a/kitpvp make map §7| §6Create a Map\n§a/kitpvp fixmap map §7| §6AutoFix a Map\n§a/kitpvp leave §7| §6Leave a Map\n§c===================");
+              $sender->sendMessage("§c===================\n§a/kitpvp join map §7| §6Join a map\n§a/kitpvp make map §7| §6Create a Map\n§a/kitpvp fixmap map §7| §6AutoFix a Map\n§a/kitpvp leave §7| §6Leave a Map\n§c===================");
            	
            }
            
