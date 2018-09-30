@@ -252,6 +252,7 @@ class KitPVP extends PluginBase implements Listener {
                    $playerconfiguare->set("Deaths", null);
                    $playerconfiguare->set("InRound", true);
                    $playerconfiguare->set("PlayedMap", "{$args[1]}");
+		   $playerconfiguare->set("K/D", null);
                    $playerconfiguare->save();
                } else {
                	$playerconfiguare = new Config("/mcpluginteam/KitPVP/users/" . $sender->getName() . ".yml");
@@ -299,7 +300,25 @@ class KitPVP extends PluginBase implements Listener {
                 }
                }
               }
-                 
+           if($args[0] === "stats") {
+           	
+           if(!is_file("/mcpluginteam/KitPVP/users/" . $sender->getName() . ".yml")) {
+                $sender->sendMessage(self::PREFIX . "§cyou never played KitPvP");
+               } else {
+               	$playerconfiguare = new Config("/mcpluginteam/KitPVP/users/" . $sender->getName() . ".yml");
+                   
+                   $kills = $playerconfiguare->get("Kills");
+                   $deaths = $playerconfiguare->get("Deaths");
+                   
+                   $kd = ($kills+1)/($deaths+1);
+                   
+                   $playerconfiguare->set("K/D", $kd);
+                   $playerconfiguare->save();
+                   
+                   $sender->sendMessage(self::PREFIX . "§6Your Stats in KitPVP\n§aKills §7| §e{$kills}\n§aDeaths §7| §e{$deaths}\n§aK/D §7| §6{$kd}\n§c=============");
+                 }
+           
+           }
            
            if($args[0] === "fixmap") {
            	if(isset($args[1])) {
